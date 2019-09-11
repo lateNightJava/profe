@@ -14,7 +14,6 @@ const userSchema = mongoose.Schema({
   accountType: {
     type: String,
     required: true,
-    default: 'Instructor',
   },
 });
 

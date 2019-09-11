@@ -1,5 +1,5 @@
-import usersRoutes from './users.js';
+import usersRoutes from './users.route.js';
 
-export default {
+module.exports = {
   usersRoutes,
 };
