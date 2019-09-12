@@ -2,19 +2,16 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
+import connectDB from './config/db.js';
+
 import routes from './routes/index.js';
 
 const app = express();
 
+connectDB();
+
 app.use(cors());
 app.use(bodyParser.json());
-
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
-  .then(() => console.log('connected to database'))
-  .catch(error => console.error(error));
-  
-mongoose.Promise = global.Promise;
 
 // app.get('/', (req, res) => res.send('Hello, Guey'));
 app.use('/user', routes.usersRoutes);
