@@ -4,7 +4,13 @@ mongoose.Promise = global.Promise;
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+    await mongoose.connect(
+      process.env.DATABASE_URL,
+      {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+      },
+    );
     console.log('MongoDB connected...');
   }
   catch (err) {
