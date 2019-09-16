@@ -1,4 +1,4 @@
-import * as UserController from './user.controller.js';
+import * as UserController from './user';
 
 module.exports = {
   UserController,

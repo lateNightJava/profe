@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Define Routes
-app.use('/api/user', routes.usersRoutes);
+app.use('/api/users', routes.usersRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`App listening on port ${process.env.PORT}`);

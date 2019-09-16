@@ -1,4 +1,4 @@
-import usersRoutes from './users.route.js';
+import usersRoutes from './api/users';
 
 module.exports = {
   usersRoutes,

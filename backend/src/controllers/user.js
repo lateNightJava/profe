@@ -1,4 +1,4 @@
-import { check, validationResult } from 'express-validator';
+import { body, param, validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/index.js';
@@ -14,10 +14,10 @@ export const getAllUsers = async (req, res) => {
 };
 
 export const validateCreateUser = () => ([
-  check.body('name', 'Please provide a name.').exists(),
-  check.body('email', 'Please provide a valid email.').exists().isEmail(),
-  check.body('password', 'Please provide a password with 6 or more characters.').exists().isLength({ min: 6 }),
-  check.body('accountType', 'Please provide a valid account type.').exists().isIn(['instructor', 'client']),
+  body('name', 'Please provide a name.').not().isEmpty(),
+  body('email', 'Please provide a valid email.').isEmail(),
+  body('password', 'Please provide a password with 6 or more characters.').isLength({ min: 6 }),
+  body('accountType', 'Please provide a valid account type.').isIn(['instructor', 'client']),
 ]);
 
 export const createUser = async (req, res) => {
@@ -54,8 +54,12 @@ export const createUser = async (req, res) => {
   }
 };
 
+export const updateUser = async (req, res) => {
+
+};
+
 export const validateDeleteUser = () => ([
-  check.param('userId', 'Please provide user id').exists(),
+  param('userId', 'Please provide user id').exists(),
 ]);
 
 export const deleteUser = async (req, res) => {

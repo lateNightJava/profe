@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { check, validationResult } from 'express-validator';
-import { UserController } from '../controllers/index.js';
-import { POST } from '../types/methodTypes.js';
+import { UserController } from '../../controllers/index.js';
+
 
 const router = Router();
 
@@ -19,7 +19,7 @@ router.route('/')
 
 router.route('/:userId')
   .patch(
-    UserController.validateUpdateUser(),
+    // UserController.validateUpdateUser(),
     UserController.updateUser,
   )
   .delete(
