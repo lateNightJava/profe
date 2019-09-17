@@ -9,6 +9,7 @@ export const getAllUsers = async (req, res) => {
     return res.status(200).json(users);
   }
   catch (err) {
+    console.error(err.message);
     return res.status(500).json({ message: err.message });
   }
 };
@@ -50,6 +51,7 @@ export const createUser = async (req, res) => {
     );
   }
   catch (err) {
+    console.error(err.message);
     return res.status(500).json({ errors: [{ msg: 'Something went wrong...' }] });
   }
 };
@@ -58,15 +60,12 @@ export const updateUser = async (req, res) => {
 
 };
 
-export const validateDeleteUser = () => ([
-  param('userId', 'Please provide user id').exists(),
-]);
-
 export const deleteUser = async (req, res) => {
   try {
 
   }
   catch (err) {
-    return res.status(400).json({ message: err.message });
+    console.error(err.message);
+    return res.status(500).json({ message: 'Something went wrong...' });
   }
 };
