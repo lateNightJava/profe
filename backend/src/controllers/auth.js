@@ -8,7 +8,7 @@ export const getAuthUser = async (req, res) => {
     const user = await User.findById(req.user.id).select('-password');
 
     if (!user) {
-      return res.status(401).json({ errors: [{ msg: 'User does not exist. Please Sign Up or Login.' }] });
+      return res.status(404).json({ errors: [{ msg: 'User does not exist. Please Sign Up or Login.' }] });
     }
 
     return res.status(200).json(user);
@@ -34,14 +34,13 @@ export const loginUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
-
     if (!user) {
-      return res.status(400).json({ errors: [{ msg: 'Please check email and password combination.' }] });
+      return res.status(401).json({ errors: [{ msg: 'Please check email and password combination.' }] });
     }
 
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
-      return res.status(400).json({ errors: [{ msg: 'Please check email and password combination.' }] });
+      return res.status(401).json({ errors: [{ msg: 'Please check email and password combination.' }] });
     }
 
     jwt.sign(

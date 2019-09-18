@@ -13,32 +13,73 @@ describe('Auth route: /api/auth', function () {
     password: '123456',
     accountType: 'client',
   };
+  let token;
 
   beforeEach(async function () {
     await User.deleteMany({});
 
-    const newUser = new User(user);
-    await newUser.save();
+    const res = await chai.request(app)
+      .post('/api/users')
+      .send(user);
+
+    token = res.body.token;
   });
 
   describe('GET fetches auth user info', function () {
     describe('Successful fetch', function () {
       it('Fetches user info with token', async function () {
+        const res = await chai.request(app)
+          .get('/api/auth')
+          .set('x-auth-token', token)
+          .send();
 
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.property('_id');
+        expect(res.body.name).to.equal(user.name);
+        expect(res.body.email).to.equal(user.email);
+        expect(res.body.accountType).to.equal(user.accountType);
       });
     });
 
     describe('Unsuccessful fetch', function () {
       it('Responds with error for no token', async function () {
+        const res = await chai.request(app)
+          .get('/api/auth')
+          .send();
 
+        expect(res).to.have.status(401);
+        expect(res.body).to.have.property('errors');
+        expect(res.body.errors).to.be.an('array');
+        expect(res.body.errors.length).to.equal(1);
+        expect(res.body.errors[0].msg).to.equal('No Token. Please sign in.');
       });
 
       it('Responds with error for invalid token', async function () {
+        const res = await chai.request(app)
+          .get('/api/auth')
+          .set('x-auth-token', `${token}1`)
+          .send();
 
+        expect(res).to.have.status(401);
+        expect(res.body).to.have.property('errors');
+        expect(res.body.errors).to.be.an('array');
+        expect(res.body.errors.length).to.equal(1);
+        expect(res.body.errors[0].msg).to.equal('Invalid token. Please sign in.');
       });
 
       it('Responds with error for deleted user', async function () {
+        await User.deleteMany({});
 
+        const res = await chai.request(app)
+          .get('/api/auth')
+          .set('x-auth-token', token)
+          .send();
+
+        expect(res).to.have.status(404);
+        expect(res.body).to.have.property('errors');
+        expect(res.body.errors).to.be.an('array');
+        expect(res.body.errors.length).to.equal(1);
+        expect(res.body.errors[0].msg).to.equal('User does not exist. Please Sign Up or Login.');
       });
     });
   });
@@ -50,7 +91,6 @@ describe('Auth route: /api/auth', function () {
           .post('/api/auth')
           .send({ email: user.email, password: user.password });
 
-        console.log(res.body);
         expect(res).to.have.status(201);
         expect(res.body).to.have.property('token');
       });
@@ -86,7 +126,7 @@ describe('Auth route: /api/auth', function () {
           .post('/api/auth')
           .send({ email: 'wrong1fake@email.com', password: user.password });
 
-        expect(res).to.have.status(400);
+        expect(res).to.have.status(401);
         expect(res.body).to.have.property('errors');
         expect(res.body.errors).to.be.an('array');
         expect(res.body.errors.length).to.equal(1);
@@ -98,7 +138,7 @@ describe('Auth route: /api/auth', function () {
           .post('/api/auth')
           .send({ email: user.email, password: '123455' });
 
-        expect(res).to.have.status(400);
+        expect(res).to.have.status(401);
         expect(res.body).to.have.property('errors');
         expect(res.body.errors).to.be.an('array');
         expect(res.body.errors.length).to.equal(1);
