@@ -7,11 +7,15 @@ export const getAuthUser = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
 
+    if (!user) {
+      return res.status(401).json({ errors: [{ msg: 'User does not exist. Please Sign Up or Login.' }] });
+    }
+
     return res.status(200).json(user);
   }
   catch (err) {
     console.error(err.message);
-    return res.status(401).json({ errors: [{ msg: 'Something went wrong...' }] });
+    return res.status(500).json({ errors: [{ msg: 'Something went wrong...' }] });
   }
 };
 
@@ -30,6 +34,7 @@ export const loginUser = async (req, res) => {
 
   try {
     const user = await User.findOne({ email });
+
     if (!user) {
       return res.status(400).json({ errors: [{ msg: 'Please check email and password combination.' }] });
     }

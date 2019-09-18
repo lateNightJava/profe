@@ -12,7 +12,10 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+
+
 // Define Routes
+app.get('/', (req, res) => res.send({ message: 'Welcome to Teechuh.com API' }));
 app.use('/api/users', routes.usersRoutes);
 app.use('/api/auth', routes.authRoutes);
 
