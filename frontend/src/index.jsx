@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import configureStore from './store';
 import { App } from './components/App';
 import './index.scss';
@@ -10,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   ReactDOM.render(
     <Provider store={store}>
-      <BrowserRouter>
+      <Router>
         <App compiler="TYPESCRIPT" framework="REACT" />
-      </BrowserRouter>
+      </Router>
     </Provider>,
     document.getElementById('root')
   );
