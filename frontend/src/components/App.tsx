@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Header } from './Header';
+import { Footer } from './Footer';
 import './app.scss';
 
 interface HelloProps {
@@ -7,13 +9,14 @@ interface HelloProps {
 }
 
 export class App extends React.Component<HelloProps, {}> {
-  render() {
+  public render(): JSX.Element {
     return (
       <>
-        <Header></Header>
-        <AppRouter></AppRouter>
-        <Footer></Footer>
+        <Header headerProp={this.props.compiler}></Header>
+        <Footer footerProp={this.props.framework}></Footer>
       </>
     );
   }
 }
+
+        // <AppRouter></AppRouter>

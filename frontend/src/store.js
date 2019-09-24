@@ -5,10 +5,8 @@ import RootReducer from './reducers';
 
 const middlewares = [thunk, logger];
 
-const configureStore = (preloadedState = {}) => createStore(
+export const configureStore = (preloadedState = {}) => createStore(
   RootReducer,
   preloadedState,
   applyMiddleware(...middlewares)
 );
-
-export default configureStore;
