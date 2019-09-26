@@ -6,8 +6,8 @@ export interface HeaderProps {
 
 export class Header extends React.Component<HeaderProps, {}> {
 
-  public add(): number {
-    return 2 + 3;
+  public add(x: number): number {
+    return 2 + 3 + x;
   }
 
   public render(): JSX.Element {

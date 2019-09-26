@@ -8,18 +8,17 @@ describe('Header Component', () => {
     headerProp: 'Que me cuentas guey?',
   };
   let wrapper: ShallowWrapper<HeaderProps>;
-  let snapshot: ReactTestRenderer;
+  let instance: Header;
 
   beforeEach(() => {
     const component = <Header { ...props } />;
 
     wrapper = shallow(component);
-    snapshot = create(component);
+    instance = wrapper.instance() as Header;
   });
 
   it('Renders component', () => {
     console.log(wrapper.debug());
-    console.log(snapshot.getInstance());
-    expect(2).toBe(1);
+    expect(instance.add(4)).toBe(9);
   });
 });
