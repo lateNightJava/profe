@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve-dev": "webpack-dev-server",
     "test": "jest",
-    "serve-dev": "webpack-dev-server"
+    "test-c": "jest --coverage",
+    "test-w": "jest --watch"
   },
   "keywords": [],
   "author": "",

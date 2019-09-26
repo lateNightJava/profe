@@ -4,7 +4,7 @@ module.exports = {
     '<rootDir>/tests/setup.ts',
   ],
   testEnvironment: 'node',
-  collectCoverage: true,
+  // collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/index.ts',
