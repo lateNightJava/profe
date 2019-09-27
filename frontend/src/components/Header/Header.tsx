@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { HeaderNav } from '../HeaderNav';
+import { Search } from '../Search';
 
 export interface HeaderProps {
   headerProp: string;
@@ -12,10 +14,18 @@ export class Header extends React.Component<HeaderProps, {}> {
 
   public render(): JSX.Element {
     return (
-      <header>
-        <nav className="header-nav">
-          { this.props.headerProp }
-        </nav>
+      <header
+        className="header"
+        data-test="headerComponent"
+      >
+        <div
+          className="header-logo"
+          data-test="headerLogo"
+        >
+          Teechuh
+        </div>
+        <Search />
+        <HeaderNav />
       </header>
     );
   }
