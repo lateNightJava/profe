@@ -9,4 +9,7 @@ module.exports = {
     'src/**/*.{ts,tsx}',
     '!src/**/index.ts',
   ],
+  transform: {
+    "^.+\\.tsx?$": "ts-jest",
+  }
 };

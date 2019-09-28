@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export interface GeoSearchBoxProps {
   location: string;
-  onChange(): void;
+  onChange(e: React.SyntheticEvent): void;
 }
 
 export const GeoSearchBox = (props: GeoSearchBoxProps) => (

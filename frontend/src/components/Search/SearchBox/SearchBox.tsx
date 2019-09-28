@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export interface SearchBoxProps {
   search: string;
-  onChange(): void;
+  onChange(e: React.SyntheticEvent): void;
 }
 
 export const SearchBox = (props: SearchBoxProps) => (

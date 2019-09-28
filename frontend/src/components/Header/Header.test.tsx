@@ -48,7 +48,7 @@ describe('Header Component', () => {
   it('Renders header nav component', () => {
     const result = wrapper.find(HeaderNav).dive();
     const result2 = findByDataTestAttr(result, 'headerNavComponent');
-    
+
     expect(result.length).toBe(1);
     expect(result2.length).toBe(1);
   });
