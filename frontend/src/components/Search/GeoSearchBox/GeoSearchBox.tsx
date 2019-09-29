@@ -1,11 +1,12 @@
 import * as React from 'react';
+import './GeoSearchBox.scss';
 
-export interface GeoSearchBoxProps {
+interface GeoSearchBoxProps {
   location: string;
-  onChange(e: React.SyntheticEvent): void;
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
-export const GeoSearchBox = (props: GeoSearchBoxProps) => (
+const GeoSearchBox = (props: GeoSearchBoxProps) => (
   <input
     className="geo-search-box"
     data-test="geoSearchBoxComponent"
@@ -15,3 +16,8 @@ export const GeoSearchBox = (props: GeoSearchBoxProps) => (
     onChange={props.onChange}
   />
 );
+
+export {
+  GeoSearchBox,
+  GeoSearchBoxProps,
+};

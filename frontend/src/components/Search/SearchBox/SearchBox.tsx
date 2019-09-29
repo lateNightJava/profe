@@ -1,11 +1,12 @@
 import * as React from 'react';
+import './SearchBox.scss';
 
-export interface SearchBoxProps {
+interface SearchBoxProps {
   search: string;
-  onChange(e: React.SyntheticEvent): void;
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
-export const SearchBox = (props: SearchBoxProps) => (
+const SearchBox: React.FC<SearchBoxProps> = props => (
   <input
     className="search-box"
     data-test="searchBoxComponent"
@@ -15,3 +16,8 @@ export const SearchBox = (props: SearchBoxProps) => (
     onChange={props.onChange}
   />
 );
+
+export {
+  SearchBox,
+  SearchBoxProps,
+};

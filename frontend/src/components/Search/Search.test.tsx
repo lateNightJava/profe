@@ -35,7 +35,6 @@ describe('Search component', () => {
 
   it('Updates state onChange for search', () => {
     const searchBox = wrapper.find(SearchBox).dive();
-    console.log(searchBox.debug());
     searchBox.simulate('change', {
       currentTarget: {
         value: 'Churros',
@@ -51,7 +50,7 @@ describe('Search component', () => {
       currentTarget: {
         value: 'Churros',
       },
-    } as React.FormEvent<HTMLInputElement>);
+    } as React.ChangeEvent<HTMLInputElement>);
     const result = instance.state;
 
     expect(result).toEqual({ search: '', location: 'Churros' });

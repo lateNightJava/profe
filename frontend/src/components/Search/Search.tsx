@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { SearchBox } from './SearchBox';
 import { GeoSearchBox } from './GeoSearchBox';
+import './Search.scss';
 
 export interface SearchState {
   location: string;
@@ -13,7 +14,7 @@ export class Search extends React.Component<{}, SearchState> {
     search: '',
   }
 
-  handleChange = (field: string) => (e: React.FormEvent<HTMLInputElement>): void => {
+  handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({ ...this.state, [field]: e.currentTarget.value });
   }
 
