@@ -8,11 +8,11 @@ export interface HeaderProps {
 
 export class Header extends React.Component<HeaderProps, {}> {
 
-  public add(x: number): number {
+  add(x: number): number {
     return 2 + 3 + x;
   }
 
-  public render(): JSX.Element {
+  render() {
     return (
       <header
         className="header"
@@ -25,7 +25,7 @@ export class Header extends React.Component<HeaderProps, {}> {
           Teechuh
         </div>
         <Search />
-        <HeaderNav />
+        <HeaderNav authenticated={false} />
       </header>
     );
   }

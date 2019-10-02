@@ -5,8 +5,8 @@ import { findByDataTestAttr } from '../../../../tests';
 
 describe('Search component', () => {
   let props: SearchBoxProps;
-  let wrapper: ShallowWrapper<SearchBoxProps>;
   let mockFunc: jest.Mock;
+  let wrapper: ShallowWrapper<SearchBoxProps>;
 
   beforeEach(() => {
     mockFunc = jest.fn();

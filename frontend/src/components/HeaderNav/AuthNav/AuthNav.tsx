@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '../../Utils/Button';
 import './AuthNav.scss';
 
 const AuthNav: React.FC = () => (
@@ -6,9 +8,32 @@ const AuthNav: React.FC = () => (
     className="auth-nav"
     data-test="authNavComponent"
   >
+    <Link
+      data-test="loginLink"
+      to="/login"
+    >
+      Login
+    </Link>
+    <Link
+      data-test="signUpLink"
+      to="/signup"
+    >
+      Sign Up
+    </Link>
   </div>
 );
 
 export {
   AuthNav,
 };
+
+// <Button
+//   componentName="loginBtnComponent"
+//   onClick={() => { console.log('login') }}
+//   text="Login"
+// />
+// <Button
+//   componentName="signUpBtnComponent"
+//   onClick={() => { console.log('sign up') }}
+//   text="Sign Up"
+// />
