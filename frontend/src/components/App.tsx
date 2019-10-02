@@ -1,22 +1,30 @@
 import * as React from 'react';
+import { AppRouter } from './AppRouter';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import './app.scss';
+import './App.scss';
 
-interface HelloProps {
+interface AppProps {
   compiler: string;
   framework: string;
 }
 
-export class App extends React.Component<HelloProps, {}> {
-  public render(): JSX.Element {
+class App extends React.Component<AppProps, {}> {
+  render() {
     return (
-      <>
-        <Header headerProp={this.props.compiler}></Header>
-        <Footer footerProp={this.props.framework}></Footer>
-      </>
+      <div
+        className="app"
+        data-test="appComponent"
+      >
+        <Header headerProp={this.props.compiler} />
+        <AppRouter />
+        <Footer footerProp={this.props.framework} />
+      </div>
     );
   }
 }
 
-        // <AppRouter></AppRouter>
+export {
+  App,
+  AppProps,
+};

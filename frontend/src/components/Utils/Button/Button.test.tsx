@@ -4,8 +4,8 @@ import { Button, ButtonProps } from './Button';
 import { findByDataTestAttr } from '../../../../tests';
 
 describe('Button component',  () => {
-  let props: ButtonProps;
   let mockFunc: jest.Mock;
+  let props: ButtonProps;
   let wrapper: ShallowWrapper<ButtonProps>;
 
   beforeEach(() => {

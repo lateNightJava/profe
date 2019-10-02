@@ -6,8 +6,8 @@ import { GeoSearchBox } from './GeoSearchBox';
 import { findByDataTestAttr } from '../../../tests';
 
 describe('Search component', () => {
-  let wrapper: ShallowWrapper<{}, SearchState>;
   let instance: Search;
+  let wrapper: ShallowWrapper<{}, SearchState>;
 
   beforeEach(() => {
     const component = <Search />;

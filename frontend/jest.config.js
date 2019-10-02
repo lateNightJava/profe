@@ -10,6 +10,9 @@ module.exports = {
     '!src/**/index.ts',
   ],
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
-  }
+    '^.+\\.tsx?$': 'ts-jest',
+  },
+  moduleNameMapper: {
+    '^.+\\.scss$': '<rootDir>/tests/mocks/styleMock.ts',
+  },
 };

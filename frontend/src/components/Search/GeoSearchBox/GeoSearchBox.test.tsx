@@ -4,9 +4,9 @@ import { GeoSearchBox, GeoSearchBoxProps } from './GeoSearchBox';
 import { findByDataTestAttr } from '../../../../tests';
 
 describe('Search component', () => {
+  let mockFunc: jest.Mock;
   let props: GeoSearchBoxProps;
   let wrapper: ShallowWrapper<GeoSearchBoxProps>;
-  let mockFunc: jest.Mock;
 
   beforeEach(() => {
     mockFunc = jest.fn();

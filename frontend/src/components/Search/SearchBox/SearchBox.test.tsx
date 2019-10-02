@@ -4,8 +4,8 @@ import { SearchBox, SearchBoxProps } from './SearchBox';
 import { findByDataTestAttr } from '../../../../tests';
 
 describe('Search component', () => {
-  let props: SearchBoxProps;
   let mockFunc: jest.Mock;
+  let props: SearchBoxProps;
   let wrapper: ShallowWrapper<SearchBoxProps>;
 
   beforeEach(() => {

@@ -4,9 +4,9 @@ import { Login, LoginState } from './Login';
 import { findByDataTestAttr } from '../../../tests';
 
 describe('Login component', () => {
-  let wrapper: ShallowWrapper <{}, LoginState>;
   let instance: Login;
   let mockFunc: jest.Mock;
+  let wrapper: ShallowWrapper <{}, LoginState>;
 
   beforeEach(() => {
     mockFunc = jest.fn();
@@ -22,19 +22,19 @@ describe('Login component', () => {
   });
 
   it('Render form', () => {
-    const result = findByDataTestAttr(wrapper, 'loginForm');
+    const result = wrapper.find({ onSubmit: instance.handleSubmit });
 
     expect(result.length).toBe(1);
   });
 
   it('Renders email input', () => {
-    const result = wrapper.find({ dataTestAttr: "emailInputComponent" });
+    const result = wrapper.find({ type: 'text' });
 
     expect(result.length).toBe(1);
   });
 
   it('Renders password input', () => {
-    const result = wrapper.find({ dataTestAttr: "passwordInputComponent" });
+    const result = wrapper.find({ type: 'password' });
 
     expect(result.length).toBe(1);
   });
@@ -67,16 +67,20 @@ describe('Login component', () => {
     expect(result).toEqual({ email: '', password: 'Huaraches' });
   });
 
-  it('Fires onSubmit event handler', () => {
-    const loginForm = findByDataTestAttr(wrapper, 'loginForm');
-    const submitBtn = findByDataTestAttr(wrapper, 'submitButton');
-    console.log(loginForm.debug());
-    console.log(loginForm.props());
+  it('Clears state after handling submit', () => {
+    instance.handleInput('password')({
+      currentTarget: {
+        value: 'Huaraches',
+      },
+    } as React.ChangeEvent<HTMLInputElement>);
+    const result = instance.state;
 
-    submitBtn.simulate('click');
-    submitBtn.simulate('click');
-    const result = mockFunc.mock.calls.length;
+    instance.handleSubmit({
+      preventDefault: () => { return; },
+    } as React.FormEvent<HTMLFormElement>);
+    const result2 = instance.state;
 
-    expect(result).toBe(2);
+    expect(result).toEqual({ email: '', password: 'Huaraches' });
+    expect(result2).toEqual({ email: '', password: '' });
   });
 });

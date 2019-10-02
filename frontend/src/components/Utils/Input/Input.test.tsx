@@ -4,15 +4,14 @@ import { Input, InputProps } from './Input';
 import { findByDataTestAttr } from '../../../../tests';
 
 describe('Input component', () => {
-  let wrapper: ShallowWrapper<InputProps>;
   let mockFunc: jest.Mock;
   let props: InputProps;
+  let wrapper: ShallowWrapper<InputProps>;
 
   beforeEach(() => {
     mockFunc = jest.fn();
     props = {
       className: 'myInput',
-      dataTestAttr: 'inputComponent',
       placeholder: 'Huevos Rancheros',
       onChange: mockFunc,
       value: 'Chile con carne',
@@ -23,7 +22,7 @@ describe('Input component', () => {
   });
 
   it('Renders component', () => {
-    const result = findByDataTestAttr(wrapper, props.dataTestAttr);
+    const result = findByDataTestAttr(wrapper, 'inputComponent');
 
     expect(result.length).toBe(1);
   });
@@ -32,7 +31,6 @@ describe('Input component', () => {
     const result = wrapper.props();
 
     expect(result.className).toBe(props.className);
-    expect(wrapper.prop('data-test')).toBe(props.dataTestAttr);
     expect(result.placeholder).toBe(props.placeholder);
     expect(result.value).toBe(props.value);
     expect(result.type).toBe(props.type);

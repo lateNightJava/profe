@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Form } from '../Utils/Form';
 import { Input } from '../Utils/Input';
 import './Login.scss';
 
@@ -19,7 +20,7 @@ class Login extends React.Component<{}, LoginState> {
 
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(this.state);
+    this.setState({ email: '', password: '' });
   }
 
   render() {
@@ -28,21 +29,18 @@ class Login extends React.Component<{}, LoginState> {
         className="login-page"
         data-test="loginComponent"
       >
-        <form
+        <Form
           onSubmit={this.handleSubmit}
-          data-test="loginForm"
         >
           <Input
-            className="loginInput"
-            dataTestAttr="emailInputComponent"
+            className="login-input"
             onChange={this.handleInput('email')}
             placeholder="Please enter email"
             value={this.state.email}
             type="text"
           />
           <Input
-            className="loginInput"
-            dataTestAttr="passwordInputComponent"
+            className="login-input"
             onChange={this.handleInput('password')}
             placeholder="Please enter password"
             value={this.state.password}
@@ -55,7 +53,7 @@ class Login extends React.Component<{}, LoginState> {
           >
             Login
           </button>
-        </form>
+        </Form>
       </div>
     );
   }

@@ -6,11 +6,11 @@ import { Search } from '../Search';
 import { findByDataTestAttr } from '../../../tests';
 
 describe('Header Component', () => {
+  let instance: Header;
   const props: HeaderProps = {
     headerProp: 'Que me cuentas guey?',
   };
   let wrapper: ShallowWrapper<HeaderProps>;
-  let instance: Header;
 
   beforeEach(() => {
     const component = <Header { ...props } />;
