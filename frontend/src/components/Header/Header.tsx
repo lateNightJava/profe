@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { HeaderNav } from '../HeaderNav';
 import { Search } from '../Search';
+import './Header.scss';
 
 export interface HeaderProps {
   headerProp: string;
@@ -19,13 +20,17 @@ export class Header extends React.Component<HeaderProps, {}> {
         data-test="headerComponent"
       >
         <div
-          className="header-logo"
-          data-test="headerLogo"
+          className="header-content"
         >
-          Teechuh
+          <div
+            className="header-logo"
+            data-test="headerLogo"
+          >
+            Teechuh
+          </div>
+          <Search />
+          <HeaderNav authenticated={false} />
         </div>
-        <Search />
-        <HeaderNav authenticated={false} />
       </header>
     );
   }

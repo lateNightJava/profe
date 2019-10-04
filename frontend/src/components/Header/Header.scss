@@ -1,0 +1,24 @@
+.header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  color: #FAFAFA;
+  background: #008077;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1024px;
+  padding: 0px 20px;
+}
+
+.header-logo {
+  font-size: 25px;
+}

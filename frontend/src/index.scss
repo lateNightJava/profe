@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
 }
 
 ul, li {
@@ -10,4 +11,10 @@ ul, li {
 
 html, body {
   height: 100vh;
+  position: relative;
+  font-family: 'Roboto Mono', monospace;
+}
+
+html {
+  background: #e6fffd;
 }
