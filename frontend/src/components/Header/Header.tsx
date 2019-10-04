@@ -1,13 +1,14 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { HeaderNav } from '../HeaderNav';
 import { Search } from '../Search';
 import './Header.scss';
 
-export interface HeaderProps {
+interface HeaderProps {
   headerProp: string;
 }
 
-export class Header extends React.Component<HeaderProps, {}> {
+class Header extends React.Component<HeaderProps, {}> {
 
   add(x: number): number {
     return 2 + 3 + x;
@@ -22,12 +23,13 @@ export class Header extends React.Component<HeaderProps, {}> {
         <div
           className="header-content"
         >
-          <div
+          <Link
             className="header-logo"
             data-test="headerLogo"
+            to="/"
           >
             Teechuh
-          </div>
+          </Link>
           <Search />
           <HeaderNav authenticated={false} />
         </div>
@@ -35,3 +37,8 @@ export class Header extends React.Component<HeaderProps, {}> {
     );
   }
 }
+
+export {
+  Header,
+  HeaderProps,
+};

@@ -9,12 +9,14 @@ const AuthNav: React.FC = () => (
     data-test="authNavComponent"
   >
     <Link
+      className="auth-nav-btn"
       data-test="loginLink"
       to="/login"
     >
       Login
     </Link>
     <Link
+      className="auth-nav-btn"
       data-test="signUpLink"
       to="/signup"
     >

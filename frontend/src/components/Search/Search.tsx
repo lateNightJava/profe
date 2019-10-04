@@ -25,20 +25,30 @@ class Search extends React.Component<{}, SearchState> {
         className="search"
         data-test="searchComponent"
       >
-        <Input
-          className="search-input"
-          onChange={this.handleChange('search')}
-          placeholder="Guitar, Piano, Drum..."
-          type="text"
-          value={this.state.search}
-        />
-        <Input
-          className="search-input"
-          onChange={this.handleChange('location')}
-          placeholder="City, Zip, or Current Location"
-          type="text"
-          value={this.state.location}
-        />
+        <div
+          className="search-input-container"
+        >
+          <span>learn:</span>
+          <Input
+            className="search-input"
+            onChange={this.handleChange('search')}
+            placeholder="Guitar, Piano, Drums..."
+            type="text"
+            value={this.state.search}
+          />
+        </div>
+        <div
+          className="search-input-container"
+        >
+          <span>in:</span>
+          <Input
+            className="search-input"
+            onChange={this.handleChange('location')}
+            placeholder="City, Zip, or Current Location"
+            type="text"
+            value={this.state.location}
+          />
+        </div>
       </div>
     );
   }
@@ -48,12 +58,3 @@ export {
   Search,
   SearchState,
 };
-
-// <SearchBox
-//   search={this.state.search}
-//   onChange={this.handleChange('search')}
-// />
-// <GeoSearchBox
-//   location={this.state.location}
-//   onChange={this.handleChange('location')}
-// />

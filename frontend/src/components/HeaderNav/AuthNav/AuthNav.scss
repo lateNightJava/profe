@@ -1,0 +1,27 @@
+.auth-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  padding: 0px 5px;
+}
+
+.auth-nav-btn {
+  padding: 3px;
+  color: #FAFAFA;
+  text-decoration: none;
+  border: 1px solid #FAFAFA;
+  border-radius: 5px;
+}
+
+.auth-nav-btn:hover {
+  border: 1px solid #00E6D6;
+}
+
+.auth-nav-btn:active {
+  // color: #00E6D6;
+  // color: #004d47;
+  color: #003330;
+  border: 1px solid #00E6D6;
+  // background: #00665F;
+  background: #00998F;
+}

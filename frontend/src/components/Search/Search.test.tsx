@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { Search, SearchState } from './Search';
+
 import { SearchBox } from './SearchBox';
 import { GeoSearchBox } from './GeoSearchBox';
 import { findByDataTestAttr } from '../../../tests';
@@ -21,20 +22,20 @@ describe('Search component', () => {
     expect(result.length).toBe(1);
   });
 
-  it('Renders search box component', () => {
-    const result = wrapper.find(SearchBox);
+  it('Renders lesson search input', () => {
+    const result = wrapper.find({ placeholder: "Guitar, Piano, Drums..." });
 
     expect(result.length).toBe(1);
   });
 
-  it('Renders geosearch box component', () => {
-    const result = wrapper.find(GeoSearchBox);
+  it('Renders geo search input', () => {
+    const result = wrapper.find({ placeholder: "City, Zip, or Current Location" });
 
     expect(result.length).toBe(1);
   });
 
   it('Updates state onChange for search', () => {
-    const searchBox = wrapper.find(SearchBox).dive();
+    const searchBox = wrapper.find({ placeholder: "Guitar, Piano, Drums..." }).dive();
     searchBox.simulate('change', {
       currentTarget: {
         value: 'Churros',

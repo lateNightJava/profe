@@ -34,22 +34,17 @@ describe('Header Component', () => {
     const result = findByDataTestAttr(wrapper, 'headerLogo');
 
     expect(result.length).toBe(1);
-    expect(result.text()).toBe('Teechuh');
   });
 
   it('Renders search component', () => {
     const result = wrapper.find(Search).dive();
-    const result2 = findByDataTestAttr(result, 'searchComponent');
 
     expect(result.length).toBe(1);
-    expect(result2.length).toBe(1);
   });
 
   it('Renders header nav component', () => {
     const result = wrapper.find(HeaderNav).dive();
-    const result2 = findByDataTestAttr(result, 'headerNavComponent');
 
     expect(result.length).toBe(1);
-    expect(result2.length).toBe(1);
   });
 });
