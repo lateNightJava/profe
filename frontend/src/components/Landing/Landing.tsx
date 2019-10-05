@@ -9,7 +9,14 @@ class Landing extends React.Component<{}, {}> {
         className="landing"
         data-test="landingComponent"
       >
-        <img src={landingPhoto} />
+        <div
+          className="landing-img-container"
+        >
+          <img
+            className="landing-img"
+            src={landingPhoto}
+          />
+        </div>
       </div>
     );
   }
