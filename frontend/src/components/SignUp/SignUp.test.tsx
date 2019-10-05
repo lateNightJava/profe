@@ -7,6 +7,13 @@ describe('SignUp component', () => {
   let instance: SignUp;
   let mockFunc: jest.Mock;
   let wrapper: ShallowWrapper <{}, SignUpState>;
+  const emptyState: SignUpState = {
+    email: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    zipCode: '',
+  };
 
   beforeEach(() => {
     mockFunc = jest.fn();

@@ -49,6 +49,7 @@ class Search extends React.Component<{}, SearchState> {
             value={this.state.location}
           />
         </div>
+        <i className="fa fa-search"></i>
       </div>
     );
   }

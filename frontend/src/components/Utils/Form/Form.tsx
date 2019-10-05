@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 interface FormProps {
+  className?: string;
   onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
@@ -13,7 +14,7 @@ const Form: React.FC<FormProps> = props => {
   return (
     <form
       data-test="formComponent"
-      { ...formProps }
+      { ...props }
     >
       { props.children }
     </form>

@@ -29,25 +29,31 @@ class Login extends React.Component<{}, LoginState> {
         className="login-page"
         data-test="loginComponent"
       >
+        <h1
+          className="login-title"
+        >
+          Login for Teechuh
+        </h1>
         <Form
+          className="login-form"
           onSubmit={this.handleSubmit}
         >
           <Input
             className="login-input"
             onChange={this.handleInput('email')}
-            placeholder="Please enter email"
+            placeholder="Email"
             value={this.state.email}
             type="text"
           />
           <Input
             className="login-input"
             onChange={this.handleInput('password')}
-            placeholder="Please enter password"
+            placeholder="Password"
             value={this.state.password}
             type="password"
           />
           <button
-            className="submit-btn"
+            className="login-submit-btn"
             data-test="submitButton"
             type="submit"
           >

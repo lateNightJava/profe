@@ -1,0 +1,24 @@
+.footer {
+  width: 100%;
+  // background: #CCFFFF;
+  background: #003330;
+  // border-top: 1px solid #008077;
+  // border-top: 1px solid #B3FFFA;
+  // border-top: 1px solid #00E6D6;
+  border-top: 1px solid #00665f;
+  -webkit-box-shadow: 0 -3px 6px -3px #003330;
+     -moz-box-shadow: 0 -3px 6px -3px #003330;
+          box-shadow: 0 -3px 6px -3px #003330;
+  padding: 30px;
+}
+
+.footer-logo {
+  font-size: 25px;
+  text-decoration: none;
+  color: #FAFAFA;
+}
+
+.footer-copyright {
+  font-size: 12px;
+  color: #FAFAFA;
+}
