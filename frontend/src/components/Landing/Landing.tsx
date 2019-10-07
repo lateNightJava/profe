@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { Search } from '../Search';
 import * as landingPhoto from './lex-aliviado-unsplash.jpg';
 import './Landing.scss';
@@ -64,14 +65,12 @@ class Landing extends React.Component<{}, {}> {
             <li>Feature 3</li>
           </ul>
         </section>
-        <section>
-          <h3>For Teachers</h3>
-          <ul>
-            <li>Feature 1</li>
-            <li>Feature 2</li>
-            <li>Feature 3</li>
-          </ul>
-        </section>
+        <Link
+          className="landing-join-now-btn"
+          to="/signup"
+        >
+          Join Now
+        </Link>
       </div>
     );
   }

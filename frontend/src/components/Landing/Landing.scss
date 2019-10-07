@@ -7,6 +7,7 @@
   background-size: cover;
   background-position: 50%;
   height: 600px;
+  margin-bottom: 30px;
 }
 
 .landing-banner-credit {
@@ -26,11 +27,6 @@
   border-radius: 3px;
 }
 
-// .landing-img {
-//   max-width: 1000px;
-//   height: 100%;
-// }
-
 .landing-search-wrapper {
   position: absolute;
   top: 50%;
@@ -39,4 +35,23 @@
   h2 {
     margin-bottom: 10px;
   }
+}
+
+.landing-join-now-btn {
+  margin: 3px 5px;
+  padding: 7px 30px;
+  border-radius: 5px;
+  background: #008077;
+  color: #FAFAFA;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.landing-join-now-btn:hover {
+  cursor: pointer;
+}
+
+.landing-join-now-btn:active {
+  color: #003330;
+  background: #00998F;
 }
