@@ -4,12 +4,16 @@ import { GeoSearchBox } from './GeoSearchBox';
 import { Input } from '../Utils/Input';
 import './Search.scss';
 
+interface SearchProps {
+  className?: string;
+}
+
 interface SearchState {
   location: string;
   search: string;
 }
 
-class Search extends React.Component<{}, SearchState> {
+class Search extends React.Component<SearchProps, SearchState> {
   state: SearchState = {
     location: '',
     search: '',
@@ -22,7 +26,7 @@ class Search extends React.Component<{}, SearchState> {
   render() {
     return (
       <div
-        className="search"
+        className={`search ${this.props.className || ''}`}
         data-test="searchComponent"
       >
         <div

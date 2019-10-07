@@ -10,11 +10,15 @@ ul, li {
 }
 
 html, body {
-  height: 100vh;
-  position: relative;
+  height: 100%;
   font-family: 'Roboto Mono', monospace;
+  color: #003330;
 }
 
 html {
   background: #E6FFFD;
 }
+
+#root {
+  height: 100%;
+};
