@@ -6,7 +6,8 @@
 }
 
 .signup-title {
-  font-size: 20px;
+  font-size: 25px;
+  margin-bottom: 10px;
 }
 
 .signup-form {
@@ -16,21 +17,48 @@
 }
 
 .signup-input {
-  width: 225px;
+  width: 275px;
   margin: 3px 5px;
   padding: 7px;
   border: 1px solid #008077;
   border-radius: 5px;
+  font-size: 15px;
+}
+
+.signup-account-type-header {
+  text-align: center;
+  font-size: 17px;
+}
+.signup-account-type-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.signup-radio-btn-wrapper {
+  display: flex;
+  align-items: center;
+
+  .signup-input-radio {
+    height: 17px;
+    width: 17px;
+  }
+
+  span {
+    margin-left: 3px;
+    font-size: 17px;
+  }
 }
 
 .signup-submit-btn {
-  width: 225px;
+  width: 275px;
   margin: 3px 5px;
   padding: 7px;
   border-radius: 5px;
   background: #008077;
   color: #FAFAFA;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .signup-submit-btn:hover {

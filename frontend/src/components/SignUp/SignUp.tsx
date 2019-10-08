@@ -4,6 +4,7 @@ import { Input } from '../Utils/Input';
 import './SignUp.scss';
 
 interface SignUpState {
+  accountType: string;
   email: string;
   firstName: string;
   lastName: string;
@@ -13,6 +14,7 @@ interface SignUpState {
 
 class SignUp extends React.Component<{}, SignUpState> {
   state: SignUpState = {
+    accountType: '',
     email: '',
     firstName: '',
     lastName: '',
@@ -50,6 +52,33 @@ class SignUp extends React.Component<{}, SignUpState> {
           className="signup-form"
           onSubmit={this.handleSubmit}
         >
+          <h4
+            className="signup-account-type-header"
+          >
+            Account Type:
+          </h4>
+          <div className="signup-account-type-wrapper">
+            <div className="signup-radio-btn-wrapper">
+              <Input
+                className="signup-input-radio"
+                name="accountType"
+                onChange={this.handleInput('accountType')}
+                type="radio"
+                value="student"
+              />
+              <span>Student</span>
+            </div>
+            <div className="signup-radio-btn-wrapper">
+              <Input
+                className="signup-input-radio"
+                name="accountType"
+                onChange={this.handleInput('accountType')}
+                type="radio"
+                value="instructor"
+              />
+              <span>Instructor</span>
+            </div>
+          </div>
           <Input
             className="signup-input"
             onChange={this.handleInput('firstName')}
@@ -64,6 +93,7 @@ class SignUp extends React.Component<{}, SignUpState> {
             value={this.state.lastName}
             type="text"
           />
+
           <Input
             className="signup-input"
             onChange={this.handleInput('email')}
