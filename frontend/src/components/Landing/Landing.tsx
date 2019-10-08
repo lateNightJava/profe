@@ -49,20 +49,26 @@ class Landing extends React.Component<{}, {}> {
             </span>
           </a>
         </section>
-        <section>
-          <h3>For Students</h3>
+        <section className="landing-description">
+          <h3>For Students:</h3>
           <ul>
-            <li>Feature 1</li>
-            <li>Feature 2</li>
-            <li>Feature 3</li>
+            <li>Find an instructor in your area!</li>
+            <li>Book a lesson!</li>
+            <li>Rate your instructor!</li>
           </ul>
         </section>
-        <section>
-          <h3>For Teachers</h3>
+        <Link
+          className="landing-join-now-btn"
+          to="/signup"
+        >
+          Join Now
+        </Link>
+        <section className="landing-description">
+          <h3>For Instructors:</h3>
           <ul>
-            <li>Feature 1</li>
-            <li>Feature 2</li>
-            <li>Feature 3</li>
+            <li>Display your availability!</li>
+            <li>Book lessons with students!</li>
+            <li>Get rated and watch your studio grow!</li>
           </ul>
         </section>
         <Link
